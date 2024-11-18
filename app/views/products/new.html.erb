@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loja | Novo produto</title>
-</head>
-<body>
-  <%= form_for Product.new do |form| %>
+<%= form_for Product.new do |form| %>
     <div class="row">
       <div class="col-sm-8">
         <div class="form-group">
@@ -46,5 +38,3 @@
 
     <%= form.submit 'Criar', class: 'btn btn-primary' %>
   <% end%>
-</body>
-</html>
