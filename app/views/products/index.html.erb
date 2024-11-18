@@ -16,18 +16,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Camiseta</td>
-        <td>Bem bonita</td>
-        <td>30</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>Luva</td>
-        <td>Para os dias frios</td>
-        <td>39</td>
-        <td>5</td>
-      </tr>
+      <% products = Product.all %>
+      <% products.each do |product| %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= product.description %></td>
+          <td><%= product.price %></td>
+          <td><%= product.amount %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </body>
