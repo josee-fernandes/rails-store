@@ -4,12 +4,17 @@ class ProductsController < ApplicationController
     @products_with_discount = Product.order(:price).limit(1)
   end
 
+  def new
+    @product = Product.new
+  end
+
   def create
     fields = params.require(:product).permit(:name, :description, :price, :amount)
     
-    product = Product.new fields
+    @product = Product.new fields
 
-    if product.save
+    if @product.save
+      flash[:notice] = 'Produto salvo com sucesso!'
       redirect_to root_url
     else
       render :new
