@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    fields = params.require(:product).permit(:name, :description, :price, :amount)
+    fields = params.require(:product).permit(:name, :description, :price, :amount, :department_id)
     
     @product = Product.new fields
 
