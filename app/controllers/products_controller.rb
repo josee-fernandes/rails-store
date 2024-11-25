@@ -9,6 +9,26 @@ class ProductsController < ApplicationController
     @departments = Department.all
   end
 
+  def edit
+    id = params[:id]
+    @product = Product.find id
+    @departments = Department.all
+    render :new
+  end
+
+  def update
+    id = params[:id]
+    @product = Product.find id
+    fields = params.require(:product).permit(:name, :description, :price, :amount, :department_id)
+    if @product.update fields
+      flash[:notice] = 'Produto atualizado com sucesso!'
+      redirect_to root_url
+    else
+      @departments = Department.all
+      render :new
+    end
+  end
+
   def create
     fields = params.require(:product).permit(:name, :description, :price, :amount, :department_id)
     
