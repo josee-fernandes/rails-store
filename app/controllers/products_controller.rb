@@ -5,10 +5,15 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = params.require(:product).permit(:name, :description, :price, :amount)
-    Product.create(product)
+    fields = params.require(:product).permit(:name, :description, :price, :amount)
+    
+    product = Product.new fields
 
-    redirect_to root_url
+    if product.save
+      redirect_to root_url
+    else
+      render :new
+    end
   end
 
   def destroy
