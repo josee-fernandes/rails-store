@@ -13,12 +13,20 @@
     <% @departments.each do |department| %>
       <tr>
         <td><%= department.name %></td>
-        <td><%= link_to 'Show', department %></td>
-        <td><%= link_to 'Edit', edit_department_path(department) %></td>
-        <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td><%= link_to 'Ver produtos', department, class: 'btn btn-default' %></td>
+        <td><%= link_to 'Editar', edit_department_path(department), class: 'btn btn-default' %></td>
+        <td>
+          <%= link_to 'Deletar',
+            department,
+            method: :delete,
+            data: {
+              confirm: "Tem certeza que deseja deletar?"
+            },
+            class: 'btn btn-default' %>
+          </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to "New department", new_department_path %>
+<%= link_to "Criar novo departamento", new_department_path, class: 'btn btn-default' %>

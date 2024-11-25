@@ -1,10 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @department %>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <td>Nome</td>
+      <td>Descrição</td>
+      <td>Departamento</td>
+      <td>Preço</td>
+      <td>Quantidade</td>
+      <td colspan="2"></td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @products_by_department %>
+  </tbody>
+</table>
 
 <div>
-  <%= link_to "Edit this department", edit_department_path(@department) %> |
-  <%= link_to "Back to departments", departments_path %>
-
-  <%= button_to "Destroy this department", @department, method: :delete %>
+  <%= link_to "Editar departamento", edit_department_path(@department), class: 'btn btn-default' %>
+  <%= link_to "Voltar", departments_path, class: 'btn btn-default' %>
 </div>

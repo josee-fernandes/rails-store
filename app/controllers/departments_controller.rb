@@ -8,6 +8,7 @@ class DepartmentsController < ApplicationController
 
   # GET /departments/1 or /departments/1.json
   def show
+    @products_by_department = Product.where('department_id = ?', params[:id])
   end
 
   # GET /departments/new
